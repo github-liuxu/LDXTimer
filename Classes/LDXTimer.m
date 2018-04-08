@@ -2,8 +2,8 @@
 //  LDXTimer.m
 //  tt
 //
-//  Created by meishe01 on 2018/4/9.
-//  Copyright © 2018年 meicam.com. All rights reserved.
+//  Created by 刘东旭 on 2018/4/9.
+//  Copyright © 2018年 刘东旭. All rights reserved.
 //
 
 #import "LDXTimer.h"
