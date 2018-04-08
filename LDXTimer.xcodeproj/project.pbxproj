@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,7 @@
 		836C93DA207A757900523A68 = {
 			isa = PBXGroup;
 			children = (
+				B5E320D1207A931700E18679 /* Classes */,
 				836C93E5207A757900523A68 /* LDXTimer */,
 				836C93E4207A757900523A68 /* Products */,
 			);
@@ -65,8 +66,6 @@
 				836C93E7207A757900523A68 /* AppDelegate.m */,
 				836C93E9207A757900523A68 /* ViewController.h */,
 				836C93EA207A757900523A68 /* ViewController.m */,
-				836C9407207A79C700523A68 /* LDXTimer.h */,
-				836C9408207A79C700523A68 /* LDXTimer.m */,
 				836C93EC207A757900523A68 /* Main.storyboard */,
 				836C93EF207A757B00523A68 /* Assets.xcassets */,
 				836C93F1207A757B00523A68 /* LaunchScreen.storyboard */,
@@ -74,6 +73,15 @@
 				836C93F5207A757B00523A68 /* main.m */,
 			);
 			path = LDXTimer;
+			sourceTree = "<group>";
+		};
+		B5E320D1207A931700E18679 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				836C9407207A79C700523A68 /* LDXTimer.h */,
+				836C9408207A79C700523A68 /* LDXTimer.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +115,12 @@
 				TargetAttributes = {
 					836C93E2207A757900523A68 = {
 						CreatedOnToolsVersion = 9.4;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 836C93DE207A757900523A68 /* Build configuration list for PBXProject "LDXTimer" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -293,10 +302,7 @@
 				DEVELOPMENT_TEAM = ZB978L2WLM;
 				INFOPLIST_FILE = "$(SRCROOT)/LDXTimer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = meicam.com.ldxTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -311,10 +317,7 @@
 				DEVELOPMENT_TEAM = ZB978L2WLM;
 				INFOPLIST_FILE = "$(SRCROOT)/LDXTimer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = meicam.com.ldxTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
