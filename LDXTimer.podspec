@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LDXTimer"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "不会循环引用的定时器"
 
   # This description is used to generate tags and improve search results.
