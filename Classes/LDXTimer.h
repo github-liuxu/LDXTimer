@@ -10,15 +10,19 @@
 
 @interface LDXTimer : NSObject
 
-+ (LDXTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo;
++ (NSTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo;
 
-+ (LDXTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo;
++ (NSTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo;
 
-+ (LDXTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(LDXTimer * _Nullable timer))block;
++ (NSTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(void))block;
 
-+ (LDXTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(LDXTimer * _Nullable timer))block;
++ (NSTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(void))block;
 
 - (instancetype _Nullable )initWithTimeInterval:(NSTimeInterval)interval target:(id _Nullable )target selector:(SEL _Nullable )selector userInfo:(id _Nullable )userInfo repeats:(BOOL)repeats;
+
+- (void)fire;
+
+- (void)invalidate;
 
 @property (readonly, getter=isValid) BOOL valid;
 

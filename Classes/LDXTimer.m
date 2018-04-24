@@ -11,7 +11,9 @@
 @interface LDXTimer()
 
 @property (nonatomic, strong) NSTimer *timer;
-@property void (^ldxTimer)(LDXTimer *timer);
+@property (nonatomic, weak) id target;
+@property (nonatomic, assign) SEL selector;
+@property (nonatomic, copy) void (^ldxTimer)(void);
 
 @end
 
@@ -19,43 +21,63 @@
 
 - (void)dealloc {
     [self invalidate];
+    NSLog(@"%s",__func__);
 }
 
-+ (LDXTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
-    LDXTimer *timer = [[[self class] alloc] initWithTimeInterval:ti target:aTarget selector:aSelector userInfo:userInfo repeats:yesOrNo];
-    return timer;
++ (NSTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
+    LDXTimer *timer = [LDXTimer new];
+    timer.target = aTarget;
+    timer.selector = aSelector;
+    timer.timer = [NSTimer timerWithTimeInterval:ti target:timer selector:@selector(targetSelector:) userInfo:userInfo repeats:yesOrNo];
+    [[NSRunLoop currentRunLoop] addTimer:timer.timer forMode:NSRunLoopCommonModes];
+    return timer.timer;
 }
 
-+ (LDXTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
-    LDXTimer *timer = [[[self class] alloc] initWithTimeInterval:ti target:aTarget selector:aSelector userInfo:userInfo repeats:yesOrNo];
-    [timer fire];
-    return timer;
+
+
++ (NSTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id _Nullable )aTarget selector:(SEL _Nullable )aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
+    LDXTimer *timer = [LDXTimer new];
+    timer.selector = aSelector;
+    timer.target = aTarget;
+    timer.timer = [NSTimer scheduledTimerWithTimeInterval:ti target:timer selector:@selector(targetSelector:) userInfo:userInfo repeats:yesOrNo];
+    return timer.timer;
 }
 
-+ (LDXTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(LDXTimer * _Nullable timer))block {
-    LDXTimer *timer = [[[self class] alloc] init];
++ (NSTimer *_Nullable)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(void))block {
+    LDXTimer *timer = [[LDXTimer alloc] init];
+    timer.ldxTimer = block;
     timer.timer = [NSTimer timerWithTimeInterval:interval target:timer selector:@selector(ldx_Selector) userInfo:nil repeats:repeats];
     [[NSRunLoop currentRunLoop] addTimer:timer.timer forMode:NSRunLoopCommonModes];
-    timer.ldxTimer = block;
-    return timer;
+    return timer.timer;
 }
 
-+ (LDXTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(LDXTimer * _Nullable timer))block {
++ (NSTimer *_Nullable)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void (^_Nullable)(void))block {
     LDXTimer *timer = [[[self class] alloc] init];
+    timer.ldxTimer = block;
     timer.timer = [NSTimer timerWithTimeInterval:interval target:timer selector:@selector(ldx_Selector) userInfo:nil repeats:repeats];
     [[NSRunLoop currentRunLoop] addTimer:timer.timer forMode:NSRunLoopCommonModes];
-    timer.ldxTimer = block;
-    [timer fire];
-    return timer;
+    return timer.timer;
 }
 
 - (void)ldx_Selector {
-    self.ldxTimer(self);
+    __weak typeof(self)weakSelf = self;
+    if (self.ldxTimer) {
+        self.ldxTimer();
+    }
+}
+
+- (void)targetSelector:(NSTimer *)timer {
+    if ([self.target respondsToSelector:self.selector]) {
+        [self.target performSelector:self.selector withObject:timer];
+    }
 }
 
 - (instancetype _Nullable )initWithTimeInterval:(NSTimeInterval)interval target:(id _Nullable )target selector:(SEL _Nullable )selector userInfo:(id _Nullable )userInfo repeats:(BOOL)repeats {
     if (self = [super init]) {
-        self.timer = [NSTimer timerWithTimeInterval:interval target:target selector:selector userInfo:userInfo repeats:repeats];
+        self.target = target;
+        self.selector = selector;
+        NSTimer *timer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(targetSelector:) userInfo:userInfo repeats:repeats];
+        self.timer = timer;
         [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
     return self;
