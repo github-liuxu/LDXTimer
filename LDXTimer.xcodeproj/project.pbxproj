@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C5B760B208E22E100967ABB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5B760A208E22E100967ABB /* SecondViewController.m */; };
+		0CFB5AED20C19462008FFE1D /* LDXWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFB5AEC20C19462008FFE1D /* LDXWeakTimer.m */; };
 		836C93E8207A757900523A68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 836C93E7207A757900523A68 /* AppDelegate.m */; };
 		836C93EB207A757900523A68 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836C93EA207A757900523A68 /* ViewController.m */; };
 		836C93EE207A757900523A68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836C93EC207A757900523A68 /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		0C5B7609208E22E100967ABB /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		0C5B760A208E22E100967ABB /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		0CFB5AEB20C19462008FFE1D /* LDXWeakTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDXWeakTimer.h; sourceTree = "<group>"; };
+		0CFB5AEC20C19462008FFE1D /* LDXWeakTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDXWeakTimer.m; sourceTree = "<group>"; };
 		836C93E3207A757900523A68 /* LDXTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDXTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		836C93E6207A757900523A68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		836C93E7207A757900523A68 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 			children = (
 				836C9407207A79C700523A68 /* LDXTimer.h */,
 				836C9408207A79C700523A68 /* LDXTimer.m */,
+				0CFB5AEB20C19462008FFE1D /* LDXWeakTimer.h */,
+				0CFB5AEC20C19462008FFE1D /* LDXWeakTimer.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CFB5AED20C19462008FFE1D /* LDXWeakTimer.m in Sources */,
 				0C5B760B208E22E100967ABB /* SecondViewController.m in Sources */,
 				836C9409207A79C700523A68 /* LDXTimer.m in Sources */,
 				836C93EB207A757900523A68 /* ViewController.m in Sources */,

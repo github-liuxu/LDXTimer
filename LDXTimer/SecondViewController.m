@@ -8,10 +8,12 @@
 
 #import "SecondViewController.h"
 #import "LDXTimer.h"
+#import "LDXWeakTimer.h"
 
 @interface SecondViewController () {
-    NSTimer *timer;
+//    NSTimer *timer;
     LDXTimer *ldxTimer;
+    LDXWeakTimer *timer;
 }
 
 @end
@@ -40,7 +42,13 @@
 //    timer = [LDXTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^{
 //        NSLog(@"kkkkkk");
 //    }];
-    
+    timer = [LDXWeakTimer scheduledTimerWithTimeInterval:0.1 dispatch_queue:dispatch_get_main_queue() block:^{
+        NSLog(@"哈哈哈哈");
+    }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [timer cancel];
 }
 
 - (void)timerClick {
