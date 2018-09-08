@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0AC9532143DAF8003AA267 /* NSTimer+LDXWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0AC9522143DAF8003AA267 /* NSTimer+LDXWeakTimer.m */; };
 		0C5B760B208E22E100967ABB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5B760A208E22E100967ABB /* SecondViewController.m */; };
 		0CFB5AED20C19462008FFE1D /* LDXWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFB5AEC20C19462008FFE1D /* LDXWeakTimer.m */; };
 		836C93E8207A757900523A68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 836C93E7207A757900523A68 /* AppDelegate.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0AC9512143DAF8003AA267 /* NSTimer+LDXWeakTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+LDXWeakTimer.h"; sourceTree = "<group>"; };
+		0C0AC9522143DAF8003AA267 /* NSTimer+LDXWeakTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+LDXWeakTimer.m"; sourceTree = "<group>"; };
 		0C5B7609208E22E100967ABB /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		0C5B760A208E22E100967ABB /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0CFB5AEB20C19462008FFE1D /* LDXWeakTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDXWeakTimer.h; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 			children = (
 				836C9407207A79C700523A68 /* LDXTimer.h */,
 				836C9408207A79C700523A68 /* LDXTimer.m */,
+				0C0AC9512143DAF8003AA267 /* NSTimer+LDXWeakTimer.h */,
+				0C0AC9522143DAF8003AA267 /* NSTimer+LDXWeakTimer.m */,
 				0CFB5AEB20C19462008FFE1D /* LDXWeakTimer.h */,
 				0CFB5AEC20C19462008FFE1D /* LDXWeakTimer.m */,
 			);
@@ -170,6 +175,7 @@
 				836C9409207A79C700523A68 /* LDXTimer.m in Sources */,
 				836C93EB207A757900523A68 /* ViewController.m in Sources */,
 				836C93F6207A757B00523A68 /* main.m in Sources */,
+				0C0AC9532143DAF8003AA267 /* NSTimer+LDXWeakTimer.m in Sources */,
 				836C93E8207A757900523A68 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
